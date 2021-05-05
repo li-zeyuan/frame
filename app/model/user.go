@@ -1,5 +1,9 @@
 package model
 
+import "frame/app/model/internal"
+
+type User internal.User
+
 // 注册请求参数，用于前后端交互参数格式约定
 type UserApiSignUpReq struct {
 	Passport  string `v:"required|length:6,16#账号不能为空|账号长度应当在:min到:max之间"`
