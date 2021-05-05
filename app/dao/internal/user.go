@@ -7,12 +7,12 @@ package internal
 import (
 	"context"
 	"database/sql"
-	"frame/app/model"
 	"time"
 
 	"github.com/gogf/gf/database/gdb"
 	"github.com/gogf/gf/frame/g"
 	"github.com/gogf/gf/frame/gmvc"
+	"github.com/li-zeyuan/frame/app/model"
 )
 
 // UserDao is the manager for logic model data accessing

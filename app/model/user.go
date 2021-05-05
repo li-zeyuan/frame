@@ -1,6 +1,6 @@
 package model
 
-import "frame/app/model/internal"
+import "github.com/li-zeyuan/frame/app/model/internal"
 
 type User internal.User
 
