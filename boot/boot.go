@@ -1,7 +1,7 @@
 package boot
 
 import (
-	_ "frame/packed"
+	_ "github.com/li-zeyuan/frame/packed"
 )
 
 func init() {
