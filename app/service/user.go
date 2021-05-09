@@ -1,6 +1,7 @@
 package service
 
 import (
+	"context"
 	"errors"
 	"fmt"
 
@@ -48,4 +49,11 @@ func (s *userService) CheckNickName(nickname string) bool {
 	}
 
 	return count == 0
+}
+
+func (s *userService)IsSingedIn(ctx context.Context)  bool{
+	if v := Context.Get(ctx); v != nil && v.User != nil {
+		return true
+	}
+	return false
 }
