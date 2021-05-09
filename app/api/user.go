@@ -12,7 +12,12 @@ var User = new(userAPI)
 
 type userAPI struct{}
 
-// 用户注册
+// @summary 用户注册接口
+// @tags    用户服务
+// @produce json
+// @param   entity  body model.UserApiSignUpReq true "注册请求"
+// @router  /user/signup [POST]
+// @success 200 {object} response.JsonResponse "执行结果"
 func (a *userAPI) SignUp(r *ghttp.Request) {
 	var (
 		apiReq     *model.UserApiSignUpReq
