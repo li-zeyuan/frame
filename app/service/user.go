@@ -54,6 +54,10 @@ func (s *userService) SignIn(ctx context.Context, passport, password string) err
 	return nil
 }
 
+func (s *userService) SingOut(ctx context.Context) error {
+	return Session.RemoveUser(ctx)
+}
+
 func (s *userService) CheckPassport(passport string) bool {
 	count, err := dao.User.FindCount(dao.User.Columns.Passport, passport)
 	if err != nil {

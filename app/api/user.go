@@ -57,3 +57,16 @@ func (a *userAPI) SignIn(r *ghttp.Request) {
 
 	response.JsonExit(r, 0, "ok")
 }
+
+// @summary 用户注销/退出接口
+// @tags    用户服务
+// @produce json
+// @router  /user/signout [GET]
+// @success 200 {object} response.JsonResponse "执行结果, 1: 未登录"
+func (a *userAPI) SignOut(r *ghttp.Request) {
+	if err := service.User.SingOut(r.Context()); err != nil {
+		response.JsonExit(r, 1, err.Error())
+	}
+
+	response.JsonExit(r, 0, "ok")
+}
