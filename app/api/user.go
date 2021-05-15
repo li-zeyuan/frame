@@ -70,3 +70,12 @@ func (a *userAPI) SignOut(r *ghttp.Request) {
 
 	response.JsonExit(r, 0, "ok")
 }
+
+// @summary 获取用户详情信息
+// @tags    用户服务
+// @produce json
+// @router  /user/profile [GET]
+// @success 200 {object} model.User "用户信息"
+func (a *userAPI) Profile(r *ghttp.Request) {
+	response.JsonExit(r, 0, "", service.User.GetProfile(r.Context()))
+}

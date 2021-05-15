@@ -9,11 +9,15 @@ import (
 
 func init() {
 	s := g.Server()
-	s.Group("/api", func(group *ghttp.RouterGroup) {
+	s.Group("/api/", func(group *ghttp.RouterGroup) {
 		group.Middleware(
 			service.Middleware.Ctx,
 			service.Middleware.CORS,
 		)
 		group.ALL("/user", api.User)
+		group.Group("/api/", func(group *ghttp.RouterGroup) {
+			group.Middleware(service.Middleware.Auth)
+			group.ALL("/user/profile", api.User.Profile)
+		})
 	})
 }

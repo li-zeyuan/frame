@@ -82,3 +82,8 @@ func (s *userService) IsSingedIn(ctx context.Context) bool {
 	}
 	return false
 }
+
+// 获得用户信息详情
+func (s *userService) GetProfile(ctx context.Context) *model.User {
+	return Session.GetUser(ctx)
+}
