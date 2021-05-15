@@ -279,6 +279,7 @@ func (d *UserDao) FindOne(where ...interface{}) (*model.User, error) {
 	if err != nil {
 		return nil, err
 	}
+
 	var entity *model.User
 	if err = one.Struct(&entity); err != nil && err != sql.ErrNoRows {
 		return nil, err

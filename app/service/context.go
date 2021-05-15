@@ -28,3 +28,7 @@ func (s *contextService) Get(ctx context.Context) *model.Context {
 
 	return nil
 }
+
+func (s *contextService) SetUser(ctx context.Context, ctxUser *model.ContextUser) {
+	s.Get(ctx).User = ctxUser
+}
