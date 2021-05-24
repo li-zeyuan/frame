@@ -1,4 +1,4 @@
-module frame
+module github.com/li-zeyuan/frame
 
 go 1.16
 
