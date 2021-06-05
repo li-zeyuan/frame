@@ -2,8 +2,8 @@ package main
 
 import (
 	"github.com/gogf/gf/frame/g"
-	_ "frame/boot"
-	_ "frame/router"
+	_ "github.com/li-zeyuan/frame/boot"
+	_ "github.com/li-zeyuan/frame/router"
 )
 
 func main() {

@@ -3,7 +3,7 @@ package boot
 import (
 	"github.com/gogf/gf/frame/g"
 	"github.com/gogf/swagger"
-	_ "frame/packed"
+	_ "github.com/li-zeyuan/frame/packed"
 )
 
 func init() {

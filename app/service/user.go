@@ -5,8 +5,8 @@ import (
 	"errors"
 	"fmt"
 
-	"frame/app/dao"
-	"frame/app/model"
+	"github.com/li-zeyuan/frame/app/dao"
+	"github.com/li-zeyuan/frame/app/model"
 )
 
 var User = userService{}

@@ -3,7 +3,7 @@ package service
 import (
 	"context"
 
-	"frame/app/model"
+	"github.com/li-zeyuan/frame/app/model"
 )
 
 // session管理服务
