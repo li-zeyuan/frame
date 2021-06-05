@@ -1,11 +1,11 @@
 package api
 
 import (
+	"frame/app/model"
+	"frame/app/service"
+	"frame/library/response"
 	"github.com/gogf/gf/net/ghttp"
 	"github.com/gogf/gf/util/gconv"
-	"github.com/li-zeyuan/frame/app/model"
-	"github.com/li-zeyuan/frame/app/service"
-	"github.com/li-zeyuan/frame/library/response"
 )
 
 var User = new(userAPI)

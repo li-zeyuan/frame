@@ -1,7 +1,7 @@
 package dao
 
 import (
-	"github.com/li-zeyuan/frame/app/dao/internal"
+	"frame/app/dao/internal"
 )
 
 type userDao struct {

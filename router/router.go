@@ -1,9 +1,9 @@
 package router
 
 import (
+	"frame/app/api"
 	"github.com/gogf/gf/frame/g"
 	"github.com/gogf/gf/net/ghttp"
-	"github.com/li-zeyuan/frame/app/api"
 )
 
 func init() {
