@@ -33,6 +33,31 @@ func (s *userService) SignUp(r *model.UserServiceSignUpReq) error {
 	return nil
 }
 
+func (s *userService) SignIn(ctx context.Context, passport, password string) error {
+	user, err := dao.User.FindOne("passport=? and password=?", passport, password)
+	if err != nil {
+		return err
+	}
+	if user == nil {
+		return errors.New("账号密码错误")
+	}
+
+	if err := Session.SetUser(ctx, user); err != nil {
+		return err
+	}
+
+	Context.SetUser(ctx, &model.ContextUser{
+		Id:       user.Id,
+		Passport: user.Passport,
+		Nickname: user.Nickname,
+	})
+	return nil
+}
+
+func (s *userService) SingOut(ctx context.Context) error {
+	return Session.RemoveUser(ctx)
+}
+
 func (s *userService) CheckPassport(passport string) bool {
 	count, err := dao.User.FindCount(dao.User.Columns.Passport, passport)
 	if err != nil {
@@ -51,9 +76,14 @@ func (s *userService) CheckNickName(nickname string) bool {
 	return count == 0
 }
 
-func (s *userService)IsSingedIn(ctx context.Context)  bool{
+func (s *userService) IsSingedIn(ctx context.Context) bool {
 	if v := Context.Get(ctx); v != nil && v.User != nil {
 		return true
 	}
 	return false
+}
+
+// 获得用户信息详情
+func (s *userService) GetProfile(ctx context.Context) *model.User {
+	return Session.GetUser(ctx)
 }

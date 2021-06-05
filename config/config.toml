@@ -26,3 +26,10 @@
         Path   = "/tmp/log/gf-app/sql"
         Level  = "all"
         Stdout = true
+
+# GF-CLI工具配置
+[gfcli]
+    # 自定义DAO生成配置(默认是读取database配置)
+    [[gfcli.gen.dao]]
+        link   = "mysql:root:12345678@tcp(127.0.0.1:3306)/test"
+        tables = "user"
